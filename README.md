@@ -14,5 +14,4 @@ restart your redmine.
 You must have administrator rights on your redmine account
 
 Go to  **Administration -> Plugins**
-and click **Configure** in front of **
-Pdf Export plugin**. 
+and click **Configure** in front of **Pdf Export plugin**. 
