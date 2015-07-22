@@ -1,4 +1,4 @@
-require_dependency 'app/models/attachment'
+require_dependency 'attachment'
 
 class LocalResource
 

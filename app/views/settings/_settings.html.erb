@@ -2,3 +2,13 @@
   <%= content_tag(:label, l(:pdf_export_enable_external_images)) %>
   <%= check_box_tag("settings[enable_external_images]", settings['enable_external_images'], settings['enable_external_images']) %>
 </p>
+
+<p>
+  <%= content_tag(:label, l(:pdf_export_disable_attachments_footer)) %>
+  <%= check_box_tag("settings[disable_attachments_footer]", settings['disable_attachments_footer'], settings['disable_attachments_footer']) %>
+</p>
+
+<p>
+  <%= content_tag(:label, l(:pdf_export_footer_with_page_number_only)) %>
+  <%= check_box_tag("settings[footer_with_page_number_only]", settings['footer_with_page_number_only'], settings['footer_with_page_number_only']) %>
+</p>

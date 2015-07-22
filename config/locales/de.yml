@@ -1,3 +1,5 @@
 # English strings go here for Rails i18n
 de:
   pdf_export_enable_external_images: "Aktivieren von externen bildern"
+  pdf_export_disable_attachments_footer: "Disable Anhänge footer"
+  pdf_export_footer_with_page_number_only: "Lassen footer nur mit Seitennummer"
