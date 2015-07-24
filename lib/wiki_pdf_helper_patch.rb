@@ -33,6 +33,19 @@ module WikiPdfHelperPatch
         end
       end
     end
+
+    def wiki_pages_array_to_pdf(pages, project)
+      pdf = Redmine::Export::PDF::ITCPDF.new(current_language)
+      pdf.set_title(project.name)
+      pdf.alias_nb_pages
+      pdf.footer_date = format_date(Date.today)
+      pdf.add_page
+      # Set resize image scale
+      pdf.set_image_scale(1.6)
+      pdf.SetFontStyle('',9)
+      write_page_hierarchy(pdf, {nil => pages})
+      pdf.output
+    end
   end
 end
 
