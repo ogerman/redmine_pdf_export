@@ -4,6 +4,8 @@ Rails.configuration.to_prepare do
   require_dependency 'ictpdf_patch'
   require_dependency 'local_resource'
   require_dependency 'wiki_pdf_helper_patch'
+  require_dependency 'wiki_content_patch'
+  require_dependency 'wiki_page_patch'
 end
 
 Redmine::Plugin.register :pdf_export do
@@ -18,4 +20,7 @@ Redmine::Plugin.register :pdf_export do
     :disable_attachments_footer => false,
     :footer_with_page_number_only => false
   }, :partial => 'settings/settings'
+  project_module :pdf_export do
+    permission :export_wiki_as_toc, { wiki_export: [:toc] }, :read => true
+  end
 end

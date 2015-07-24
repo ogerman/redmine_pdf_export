@@ -3,3 +3,5 @@ en:
   pdf_export_enable_external_images: "Enable inclusion of external images"
   pdf_export_disable_attachments_footer: "Disable attachments footer"
   pdf_export_footer_with_page_number_only: "Leave footer with page number only"
+  pdf_export_as_toc_pdf: "Export as table of contents in PDF"
+  pdf_export_as_toc_html: "Export as table of contents in HTML"
