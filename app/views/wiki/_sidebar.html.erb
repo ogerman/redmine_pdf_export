@@ -9,7 +9,7 @@
   <li><%= link_to(l(:label_index_by_date),
                   {:controller => 'wiki', :project_id => @project,
                    :action => 'date_index'}) %></li>
-  <% if User.current.allowed_to?(:export_wiki_as_toc, @project) %>
+  <% if @page.present? && User.current.allowed_to?(:export_wiki_as_toc, @project) %>
     <li><%= link_to(l(:pdf_export_as_toc_html), wiki_export_as_toc_path(@project, @page.title, format: "html")) %></li>
     <li><%= link_to(l(:pdf_export_as_toc_pdf), wiki_export_as_toc_path(@project, @page.title, format: "pdf")) %></li>
   <% end %>
