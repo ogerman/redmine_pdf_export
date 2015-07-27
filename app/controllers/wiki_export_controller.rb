@@ -37,7 +37,6 @@ private
 
   # Finds the requested page and returns a 404 error if it doesn't exist
   def find_existing_page
-    Rails.logger.error(@project.inspect)
     @page = @wiki.find_page(params[:id])
     if @page.nil?
       render_404

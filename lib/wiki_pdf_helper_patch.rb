@@ -14,9 +14,12 @@ module WikiPdfHelperPatch
       text = textilizable(page.content, :text,
         :only_path => false,
         :edit_section_links => false,
-        :headings => false,
-        :inline_attachments => false
+#        :headings => false,
+        :inline_attachments => false,
+        :pdf_format => true,
+        :wiki_links => :anchor
       )
+      text = "<a name=\"#{page.title}\"></a> \n #{text}"
       pdf.RDMwriteFormattedCell(190,5,'','', text, page.attachments, 0)
       if !Setting.plugin_pdf_export['disable_attachments_footer'] && page.attachments.any?
         pdf.ln(5)
@@ -46,7 +49,10 @@ module WikiPdfHelperPatch
       write_page_hierarchy(pdf, {nil => pages})
       pdf.output
     end
+
   end
+
+
 end
 
 unless Redmine::Export::PDF::WikiPdfHelper.included_modules.include? WikiPdfHelperPatch
