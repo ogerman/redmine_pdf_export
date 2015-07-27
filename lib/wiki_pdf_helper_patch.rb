@@ -1,4 +1,8 @@
-require_dependency "#{Rails.root}/lib/redmine/export/pdf/wiki_pdf_helper.rb"
+if Redmine::VERSION::MAJOR == 2
+#  require_dependency "#{Rails.root}/lib/redmine/export/pdf"
+elsif
+  require_dependency "#{Rails.root}/lib/redmine/export/pdf/wiki_pdf_helper"
+end
 
 module WikiPdfHelperPatch       
   def self.included(base)
@@ -49,12 +53,15 @@ module WikiPdfHelperPatch
       write_page_hierarchy(pdf, {nil => pages})
       pdf.output
     end
-
   end
-
-
+end
+if Redmine::VERSION::MAJOR == 2
+  unless Redmine::Export::PDF.included_modules.include? WikiPdfHelperPatch
+    Redmine::Export::PDF.send(:include, WikiPdfHelperPatch)
+  end
+elsif Redmine::VERSION::MAJOR == 3
+  unless Redmine::Export::PDF::WikiPdfHelper.included_modules.include? WikiPdfHelperPatch
+    Redmine::Export::PDF::WikiPdfHelper.send(:include, WikiPdfHelperPatch) 
+  end
 end
 
-unless Redmine::Export::PDF::WikiPdfHelper.included_modules.include? WikiPdfHelperPatch
-  Redmine::Export::PDF::WikiPdfHelper.send(:include, WikiPdfHelperPatch) 
-end

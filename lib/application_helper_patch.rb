@@ -1,4 +1,4 @@
-require_dependency "app/helpers/application_helper"
+require_dependency "#{Rails.root}/app/helpers/application_helper"
 
 module ApplicationHelperPatch       
   def self.included(base)
