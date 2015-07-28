@@ -7,6 +7,7 @@ Rails.configuration.to_prepare do
   require_dependency 'wiki_content_patch'
   require_dependency 'wiki_page_patch'
   require_dependency 'application_helper_patch'
+  require_dependency 'comment_macro'
 end
 
 Redmine::Plugin.register :pdf_export do
