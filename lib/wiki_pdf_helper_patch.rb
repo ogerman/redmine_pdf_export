@@ -23,6 +23,7 @@ module WikiPdfHelperPatch
         :pdf_format => true,
         :wiki_links => :anchor
       )
+      text = "<style>#{Setting.plugin_pdf_export['pdf_css']}</style> \n #{text}"
       text = "<a name=\"#{page.title}\"></a> \n #{text}"
       pdf.RDMwriteFormattedCell(190,5,'','', text, page.attachments, 0)
       if !Setting.plugin_pdf_export['disable_attachments_footer'] && page.attachments.any?

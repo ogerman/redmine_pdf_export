@@ -20,7 +20,8 @@ Redmine::Plugin.register :pdf_export do
   settings :default => {
     :enable_external_images => false,
     :disable_attachments_footer => false,
-    :footer_with_page_number_only => false
+    :footer_with_page_number_only => false,
+    :pdf_css => ''
   }, :partial => 'settings/settings'
   project_module :pdf_export do
     permission :export_wiki_as_toc, { wiki_export: [:toc] }, :read => true

@@ -12,3 +12,20 @@
   <%= content_tag(:label, l(:pdf_export_footer_with_page_number_only)) %>
   <%= check_box_tag("settings[footer_with_page_number_only]", settings['footer_with_page_number_only'], settings['footer_with_page_number_only']) %>
 </p>
+
+<%= stylesheet_link_tag 'codemirror', :plugin => :redmine_custom_pdf_css %>
+<%= javascript_include_tag 'codemirror-compressed', :plugin => :redmine_custom_pdf_css %>
+
+<p>
+  <%= text_area_tag 'settings[pdf_css]', @settings[:pdf_css] %>
+</p>
+
+<script type="text/javascript">
+    var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("settings_pdf_css"), {
+        mode: "css",
+        smartIndent: true,
+        lineNumbers: true,
+        matchBrackets: true
+    });
+</script>
+
