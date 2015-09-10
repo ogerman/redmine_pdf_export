@@ -14,7 +14,7 @@ Redmine::Plugin.register :pdf_export do
   name 'Pdf Export plugin'
   author 'Oleg German'
   description 'Extends PDF export functionality'
-  version '0.0.1'
+  version '0.1'
   url 'https://github.com/ogerman/redmine_pdf_export'
   author_url 'https://github.com/ogerman'
   settings :default => {
