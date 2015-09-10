@@ -13,8 +13,8 @@
   <%= check_box_tag("settings[footer_with_page_number_only]", settings['footer_with_page_number_only'], settings['footer_with_page_number_only']) %>
 </p>
 
-<%= stylesheet_link_tag 'codemirror', :plugin => :redmine_custom_pdf_css %>
-<%= javascript_include_tag 'codemirror-compressed', :plugin => :redmine_custom_pdf_css %>
+<%= stylesheet_link_tag 'codemirror', :plugin => :pdf_export %>
+<%= javascript_include_tag 'codemirror-compressed', :plugin => :pdf_export %>
 
 <p>
   <%= text_area_tag 'settings[pdf_css]', @settings[:pdf_css] %>
