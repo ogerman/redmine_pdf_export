@@ -59,6 +59,7 @@ end
 if Redmine::VERSION::MAJOR == 2
   unless Redmine::Export::PDF.included_modules.include? WikiPdfHelperPatch
     Redmine::Export::PDF.send(:include, WikiPdfHelperPatch)
+    WikiHelper.send(:include, Redmine::Export::PDF)
   end
 elsif Redmine::VERSION::MAJOR == 3
   unless Redmine::Export::PDF::WikiPdfHelper.included_modules.include? WikiPdfHelperPatch

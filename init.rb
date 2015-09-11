@@ -8,6 +8,10 @@ Rails.configuration.to_prepare do
   require_dependency 'wiki_page_patch'
   require_dependency 'application_helper_patch'
   require_dependency 'comment_macro'
+  if Redmine::VERSION::MAJOR == 2
+    require_dependency 'wiki_controller_patch'
+  end
+
 end
 
 Redmine::Plugin.register :pdf_export do
